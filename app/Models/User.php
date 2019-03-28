@@ -36,4 +36,29 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /**
+    * Get the role associated with the given user.
+    *
+    * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+    */
+    public function role()
+    {
+
+        return $this->belongsTo('App\Models\Role');
+    }
+
+    /**
+     * Checks the role of the user
+     * @param  string $name role name
+     * @return bool
+     */
+    public function checkRole(string $name): bool
+    {
+        $role = $this->role;
+
+        if (!$role) return false;
+
+        return $role->name === $name;
+    }
 }
