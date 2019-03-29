@@ -22,3 +22,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function() {
     Route::resource('products', 'Admin\ProductController')->except(['show']);
 });
+
+Route::group(['middleware' => ['auth']], function() {
+    Route::get('products', 'User\ProductController@index');
+});
