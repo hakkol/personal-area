@@ -23,4 +23,15 @@ class Product extends Model
     protected $casts = [
         'is_hidden' => 'boolean',
     ];
+
+    /**
+     * Scope a query to only include visible products.
+     *
+     * @param  \Illuminate\Database\Eloquent\Builder  $query
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    public function scopeVisible($query)
+    {
+        return $query->where('is_hidden', false);
+    }
 }
