@@ -33,8 +33,8 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <!-- Left Side Of Navbar -->
                 <ul class="navbar-nav mr-auto">
-                    <li>
-                        <a class="navbar-brand" href="{{ action('Admin\ProductController@index') }}">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ action('Admin\ProductController@index') }}">
                             Products
                         </a>
                     </li>
@@ -82,7 +82,6 @@
     </main>
 
     <!-- Scripts -->
-    <script src="{{ mix('js/app.js') }}" defer></script>
-    <script src="{{ mix('js/admin.js') }}"></script>
+    <script src="{{ mix('js/admin.js') }}" defer></script>
 </body>
 </html>
