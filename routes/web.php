@@ -21,11 +21,12 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function() {
     Route::resource('products', 'Admin\ProductController')->except(['show']);
+
+    Route::resource('orders', 'Admin\OrderController')->only(['index', 'update']);
 });
 
 Route::group(['middleware' => ['auth']], function() {
     Route::get('products', 'User\ProductController@index');
 
-    Route::get('orders', 'User\OrderController@index');
-    Route::post('orders', 'User\OrderController@store');
+    Route::resource('orders', 'User\OrderController')->only(['index', 'store']);
 });
