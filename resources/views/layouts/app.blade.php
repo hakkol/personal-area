@@ -36,6 +36,9 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{ action('User\ProductController@index') }}">Products</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ action('User\OrderController@index') }}">Orders</a>
+                        </li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -57,6 +60,13 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                    @if (Auth::user()->checkRole('admin'))
+                                        <a
+                                            class="dropdown-item"
+                                            href="{{ action('Admin\OrderController@index') }}"
+                                        >Admin dashboard</a>
+                                    @endif
+
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
