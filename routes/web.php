@@ -25,4 +25,6 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function(
 
 Route::group(['middleware' => ['auth']], function() {
     Route::get('products', 'User\ProductController@index');
+
+    Route::post('orders', 'User\OrderController@store');
 });
