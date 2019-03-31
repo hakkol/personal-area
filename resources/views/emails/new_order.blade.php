@@ -1,0 +1,1 @@
+Created a new order by the user {{ $email }}
