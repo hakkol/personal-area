@@ -30,6 +30,22 @@ class OrderController extends Controller
     }
 
     /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
+    {
+        $user = \Auth::user();
+
+        $orders = Order::where('user_id', $user->id)
+            ->orderBy('created_at', 'desc')
+            ->paginate(10);
+
+        return view('user.orders.index', compact('orders'));
+    }
+
+    /**
      * Store a newly created resource in storage.
      *
      * @param  SaveOrderRequest  $request
@@ -52,9 +68,9 @@ class OrderController extends Controller
         $user = \Auth::user();
 
         $this->orderService->store([
-            'user_id'    => $user->id,
-            'product_id' => $request->product,
-            'status_id'  => $status->id,
+            'user'      => $user,
+            'product'   => $product,
+            'status_id' => $status->id,
         ]);
 
         $this->mailHelper->newOrder($user->email);
