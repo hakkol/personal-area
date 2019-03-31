@@ -38,6 +38,11 @@
                             Products
                         </a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ action('Admin\OrderController@index') }}">
+                            Orders
+                        </a>
+                    </li>
                 </ul>
 
                 <!-- Right Side Of Navbar -->
