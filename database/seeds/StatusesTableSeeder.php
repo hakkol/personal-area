@@ -25,6 +25,11 @@ class StatusesTableSeeder extends Seeder
                 'name'       => 'purchased',
                 'created_at' => $now,
                 'updated_at' => $now,
+            ],
+            [
+                'name'       => 'сanceled',
+                'created_at' => $now,
+                'updated_at' => $now,
             ]
         ]);
     }
