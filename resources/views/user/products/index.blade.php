@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+@extends('layouts.app')
 
 @section('title')
     Products
@@ -27,7 +27,11 @@
                                     <td>{{ $product->name }}</td>
                                     <td>{{ $product->cost }}</td>
                                     <td class="text-center">
-                                        <button class="btn btn-success" type="button">Buy</button>
+                                        <button
+                                            class="btn btn-success js-new-order"
+                                            type="button"
+                                            data-id="{{ $product->id }}"
+                                        >Buy</button>
                                     </td>
                                 </tr>
                             @endforeach
