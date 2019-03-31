@@ -5,5 +5,13 @@
  * application frontend using useful Laravel and JavaScript libraries.
  */
 
-require('./bootstrap');
+window.$ = window.jQuery = require('jquery')
+
 require('bootstrap')
+require('./components/new-order.js')
+
+$.ajaxSetup({
+    headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    }
+})
