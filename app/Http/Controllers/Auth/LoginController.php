@@ -28,7 +28,7 @@ class LoginController extends Controller
     protected function redirectTo() {
         $user = \Auth::user();
 
-        if ($user->checkRole('admin')) return action('Admin\ProductController@index');
+        if ($user->checkRole('admin')) return action('Admin\OrderController@index');
 
         return '/home';
     }
